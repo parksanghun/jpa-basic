@@ -18,8 +18,8 @@ public class JpaMainFlush {
         try {
 
             // Update는 persist로 호출하지 않더라도 변경이 수행된다. 내부적으로 변경을 감지하여 처리하기 때문에
-            Member member = new Member(200L, "member200");
-            em.persist(member);
+//            Member member = new Member(200L, "member200", 10);
+//            em.persist(member);
 
             em.flush();
 
