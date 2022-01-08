@@ -15,14 +15,16 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@SequenceGenerator(name = "member_seq_generator", sequenceName = "member_seq")
+@SequenceGenerator(name = "MEMBER_SEQ_GENERATOR", sequenceName = "MEMBER_SEQ", allocationSize = 1)
+//@TableGenerator(name = "MEMBER_SEQ_GENERATOR", table = "MY_SEQUENCES", pkColumnValue = "MEMBER_SEQ", allocationSize = 1)
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "member_seq_generator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")
+//    @GeneratedValue(strategy = GenerationType.TABLE, generator = "MEMBER_SEQ_GENERATOR")
     private Long id;
 
-    @Column(unique = true, length = 10, insertable = true, updatable = true, nullable = false, columnDefinition = "varchar(100) default 'EMPTY'")
+    @Column(unique = true, length = 10, insertable = true, updatable = true, nullable = false, columnDefinition = "VARCHAR(100) DEFAULT 'EMPTY'")
     private String name;
     private int age;
 
